@@ -1,0 +1,153 @@
+
+@main("Dashboard"){
+    <div ng-controller="maincontroller" id="wrapper">
+        @header()
+        @sideMenu()
+        <div id="page-wrapper">
+            <div id="page-inner">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel info-box panel-white">
+                            <div class="panel-body">
+                                <div class="col-lg-6">
+                                    <div class="info-box-icon">
+                                        <i style="color: #225081" class="fa fa-4x fa-users"></i>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="info-box-stats">
+                                        <p class="counter">107,200</p>
+
+
+                                    </div>
+                                </div>
+                             </div>
+                            <span class="info-box-title "><center>Users</center></span>
+                     </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel info-box panel-white">
+                            <div class="panel-body">
+                                <div class="col-lg-6">
+                                    <div class="info-box-icon">
+                                        <i style="color: #225081"  class="fa fa-4x fa-exchange"></i>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="info-box-stats">
+                                        <p class="counter">340,230</p>
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <span class="info-box-title "><center>Today's Txn Count</center></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel info-box panel-white">
+                            <div class="panel-body">
+                               <div class="col-lg-6">
+                                   <div class="info-box-icon">
+                                       <i style="color: #225081"  class="fa fa-4x fa-shopping-cart"></i>
+                                   </div>
+                               </div>
+                               <div class="col-lg-6">
+                                   <div class="info-box-stats">
+                                       <span class="counter">653,000</span>
+
+                                   </div>
+                               </div>
+
+                            </div>
+                            <span class="info-box-title "><center>Total volume</center></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel info-box panel-white">
+                            <div class="panel-body">
+                                <div class="col-lg-6">
+                                    <div class="info-box-icon">
+                                        <i style="color: #225081"  class="fa fa-4x fa-money"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="info-box-stats">
+                                        <p class="counter">47,500</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <span class="info-box-title "><center>Balance</center></span>
+                        </div>
+                    </div>
+                </div><!-- Row -->
+
+                <div class="panel panel-default">
+
+                </div>
+                <div class="panel panel-default ">
+                    <div class="panel panel-body">
+                        Daily Recap Report
+                        <hr>
+                        <div class="col-lg-6">
+                            <div id="container"></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div id="container2"></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="panel">
+                        <p>Recent payments</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="success">
+                                            <th>Txn#</th>
+                                            <th>Time</th>
+                                            <th>Meter</th>
+                                            <th>Amount</th>
+                                            <th colspan="2">Description</th>
+                                            <th >Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Txn#</td>
+                                            <td>Time</td>
+                                            <td>Meter</td>
+                                            <td>Amount</td>
+                                            <td colspan="2">Description</td>
+                                            <td>OK</td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+
+
+            @footer()
+            </div>
+                <!-- /. PAGE INNER  -->
+        </div>
+            <!-- /. PAGE WRAPPER  -->
+    </div>
+
+}
