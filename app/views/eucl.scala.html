@@ -1,0 +1,214 @@
+@(provider: String)
+@main("Electricity payment"){
+<div ng-controller="maincontroller" id="wrapper">
+    @header()
+    @sideMenu("eucl")
+<div id="page-wrapper">
+    <div id="page-inner">
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                    </div>
+        </div>
+        <div ng-show="whichService('@provider')" class="panel panel-default" style="border-top-style:none; margin-top:0px">
+
+            <div class="panel-heading">
+            EUCL PREPAID ELECTRICITY
+            </div>
+
+
+            <div class="panel-body">
+
+
+
+                <div class="well col-lg-7">
+
+                    <label>
+                Client meter number
+                    </label>
+                    <input ng-model="tigoAirtimeRecharge.number" class="form-control" placeholder="Enter meter number." >
+
+                    <div class="panel panel-default" style="padding:5px">
+                        <label>
+                    Recharge amount
+                        </label>
+                        <input ng-model="tigoAirtimeRecharge.amount" placeholder="Amount" class="form-control" >
+                        <br>
+                        <button class="btn btn-primary" ng-click="payEuclElectricity()" >Recharge now</button>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <div ng-hide="euclResponse">
+                                <div>
+                                    <span style="color:gray">Meter number:</span> <span class="pull-right" style=""><b>{{euclRecharge.meterNumber}}</b></span>
+                                </div>
+                                <hr>
+                                <div style="text-align:center">
+                                    <span style="font-weight:bold">Recharge amount</span>
+                                    <br>
+                                    <div class="panel panel-default" style="padding:5px">
+                                        {{euclRecharge.amount}} Rwf
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div style="text-align:center">
+                                <span style="font-weight:bold">EUCL response</span>
+                                <br>
+
+
+                                <div class="panel panel-default" style="padding:5px">
+                                    <div>Status</div>
+                                    <div>{{euclResponse.status}}</div>
+                                </div>
+                                <div ng-show="html" class="panel panel-default" style="padding:5px" ng-bind-html = "tigoResponse | rawHtml">
+
+                                </div>
+
+
+                                <div ng-show="euclResponse">
+                                    <div ng-if="tigoResponse.status =='Done, please scroll below to print the ticket.'">
+                                        <div  id = euclresponse class="panel panel-default" style="padding:5px">
+                                            <table style="width:250px;font-size:medium">
+                                                <tr>
+                                                    <td><center><b>EUCL</b></center></td>
+                                                </tr>
+                                                <tr >
+                                                    <td style="float:left">Tax no:</td>
+                                                    <td style="float:right ;font-size:smaller">103372638</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Date:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.time}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="float:left">Receipt no:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.receiptNumber}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Meter no:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.meterNumber}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Electricity Pre-paid</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{euclResponse.clientName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Tax ref:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.taxReference}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i >---------------------------------------------</i></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><center>Service Credit</center></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b><center>{{euclResponse.scratchCard}}</center></b></td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><i >---------------------------------------------</i></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Total Value:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.amount |number}}RWF</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Tendered:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.tendered |number}}RWF</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Total Units :</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.units}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Tva @@ 18% :</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.tva |number}}RWF</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Regulatory fees @@ 0.3%:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.regulatory |number}}RWF</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Agent name:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.agentName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left">Agent contact:</td>
+                                                    <td style="float:right;font-size:smaller">{{euclResponse.agent.phone}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="float:left;font-size:smaller">Operator :</td>
+                                                    <td style="float:left"><b  style="font-size:smaller">La chalitte Business</b></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+
+
+                                            <!--  <div class="panel panel-default" style="padding:5px">
+                            <div class="panel panel-default" style="padding:5px" ng-bind-html = "tigoResponse.nHtmlString | rawHtml">
+
+                            </div>
+
+                            {{tigoResponse.nHtmlString}}
+
+
+
+                        </div>
+                        -->
+
+                                        <div>
+                                            <button ng-click="printReport('euclresponse')" class = "btn btn-success">Print</button>
+                                        </div>
+                                    </div>
+
+                                        <!--
+                        <div class="panel panel-default" style="padding:5px">
+                            {{tigoResponse.message}}
+                        </div>
+                        -->
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="panel-footer">
+        Select the service you want to access.
+            </div>
+        </div>
+
+
+        @footer()
+    </div>
+        <!-- /. PAGE INNER  -->
+</div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+}

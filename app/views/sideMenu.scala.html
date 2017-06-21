@@ -1,89 +1,84 @@
+@(page: String)
+
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
 
             <li>
-                <a class="active-menu" href="main.php"><i class="fa fa-dashboard"></i> Dashboard</a>
+                <a class="@if(page=="dashboad"){active}-menu" href="/Dashboad"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
 
 
-            <li>
-                <a href="#"><i class="fa fa-sitemap"></i> Settings<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Team</a>
-                    </li>
-                    <li>
-                        <a href="#">Ground</a>
-                    </li>
-                    <li>
-                        <a href="#">Phase</a>
-                    </li>
+            @*<li>*@
+                @*<a href="#"><i class="fa fa-sitemap"></i> Settings<span class="fa arrow"></span></a>*@
+                @*<ul class="nav nav-second-level">*@
+                    @*<li>*@
+                        @*<a href="#">Team</a>*@
+                    @*</li>*@
+                    @*<li>*@
+                        @*<a href="#">Ground</a>*@
+                    @*</li>*@
+                    @*<li>*@
+                        @*<a href="#">Phase</a>*@
+                    @*</li>*@
 
-                </ul>
+                @*</ul>*@
+            @*</li>*@
+            <li>
+                <a class="@if(page=="eucl"){active}-menu" href="#"><i class="fa fa-flash"></i>Eucl Services<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+
+                            <li>
+                            <a href="/provider/EUCL">Eucl transaction</a>
+                            </li>
+
+                    </ul>
+                    @*<li>*@
+                        @*<a href="#">Match Report<span class="fa arrow"></a>*@
+                        @*<ul class="nav nav-third-level">*@
+                            @*<li>*@
+                                @*<a href="#">Fixture</a>*@
+                            @*</li>*@
+                            @*<li>*@
+                                @*<a href="#">By Phase</a>*@
+                            @*</li>*@
+                            @*<li>*@
+                                @*<a href="#">By Ground</a>*@
+                            @*</li>*@
+
+                        @*</ul>*@
+                    @*</li>*@
+                    @*<li>*@
+                        @*<a href="#">Results Report<span class="fa arrow"></span></a>*@
+                        @*<ul class="nav nav-third-level">*@
+                            @*<li>*@
+                                @*<a href="#">By Match</a>*@
+                            @*</li>*@
+                            @*<li>*@
+                                @*<a href="#">By Phase</a>*@
+                            @*</li>*@
+                            @*<li>*@
+                                @*<a href="#">General Phase</a>*@
+                            @*</li>*@
+
+                        @*</ul>*@
+
+                    @*</li>*@
+                @*</ul>*@
+            </li>
+
+            <li>
+                <a class="@if(page=="users"){active}-menu" href="#"><i class="fa fa-users"></i>Users<span ></span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap"></i>Reports<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Team Report<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="table.html">Staff</a>
-                            </li>
-                            <li>
-                                <a href="#">Player</a>
-                            </li>
-                            <li>
-                                <a href="#">Sponsor</a>
-                            </li>
-                            <li>
-                                <a href="#">Coach</a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Match Report<span class="fa arrow"></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">Fixture</a>
-                            </li>
-                            <li>
-                                <a href="#">By Phase</a>
-                            </li>
-                            <li>
-                                <a href="#">By Ground</a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Results Report<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">By Match</a>
-                            </li>
-                            <li>
-                                <a href="#">By Phase</a>
-                            </li>
-                            <li>
-                                <a href="#">General Phase</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                </ul>
+                <a class="@if(page=="agent"){active}-menu" href="#"><i class="fa fa-users"></i>Agents<span ></span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap"></i> Users<span class="fa arrow"></span></a>
+                <a class="@if(page=="users"){active}-menu" href="#"><i class="fa fa-fa fa-gear fa-fw"></i>Setting<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
+
                     <li>
-                        <a href="#">Users</a>
-                    </li>
-                    <li>
-                        <a href="#">Profile</a>
+                        <a href="#">Change password</a>
                     </li>
                     <li>
                         <a href="#">Logout</a>
